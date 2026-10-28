@@ -2,7 +2,6 @@
 
 > **"Transform Customer Insights into an Actionable, Prioritized Product Roadmap."**
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python](https://img.shields.io/badge/Python-3.10%2B-blue.svg)](https://www.python.org/)
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.104%2B-009688.svg)](https://fastapi.tiangolo.com/)
 [![React](https://img.shields.io/badge/React-18.2%2B-61DAFB.svg)](https://react.dev/)
@@ -149,6 +148,5 @@ tests/test_discovery.py::test_schema_validation PASSED
 
 ---
 
-## 📄 License
+## 📄 License and Copyright\n\nAll rights reserved © 2026 Chakradhar Buridi.
 
-MIT License © 2026 Chakradhar Buridi. Built with pride for autonomous product discovery and AI roadmapping.
