@@ -1,314 +1,154 @@
-<div align="center">
+﻿# DiscoveryOS
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:2DD4BF,100:6366F1&height=200&section=header&text=DiscoveryOS&fontSize=42&fontColor=ffffff&animation=fadeIn&fontAlignY=35&desc=AI%20Product%20Discovery%20Intelligence%20System&descAlignY=55&descSize=17" width="100%"/>
+> **"Transform Customer Insights into an Actionable, Prioritized Product Roadmap."**
 
-<br/>
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Python](https://img.shields.io/badge/Python-3.10%2B-blue.svg)](https://www.python.org/)
+[![FastAPI](https://img.shields.io/badge/FastAPI-0.104%2B-009688.svg)](https://fastapi.tiangolo.com/)
+[![React](https://img.shields.io/badge/React-18.2%2B-61DAFB.svg)](https://react.dev/)
+[![Vite](https://img.shields.io/badge/Vite-5.0%2B-646CFF.svg)](https://vitejs.dev/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.3%2B-38B2AC.svg)](https://tailwindcss.com/)
 
-![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
-![Flask](https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white)
-![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
-![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)
-![SQLite](https://img.shields.io/badge/SQLite-07405E?style=for-the-badge&logo=sqlite&logoColor=white)
-![TailwindCSS](https://img.shields.io/badge/TailwindCSS-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)
-
-<br/>
-
-> ### 🔍 *"Turn a flood of customer insights into a ranked, themed, actionable roadmap"*
-> **Insight Clustering • Segment Intelligence • Live Priority Scoring**
-
-<br/>
-
-</div>
-
-## 🎯 What Is This Project?
-
-**DiscoveryOS** is a full-stack AI-powered product discovery intelligence system. It ingests raw customer insights, automatically clusters them into themes, identifies which user segments they belong to, and calculates a priority score for each one — all visualized in a live, interactive dashboard.
-
-Product teams are usually buried in scattered feedback: support tickets, interview notes, survey responses. DiscoveryOS is a first pass at the infrastructure that turns that noise into a structured, prioritized view of what to build next.
+DiscoveryOS is a full-stack, AI-powered product discovery intelligence platform. Product teams are routinely inundated with disjointed feedback scattered across support tickets, user interview recordings, sales call notes, and NPS survey verbatims. DiscoveryOS automates the synthesis pipeline: ingesting raw customer insights, embedding semantics with sentence transformers, clustering feedback into coherent feature themes, identifying user segment distributions (Enterprise, Mid-Market, SMB), and calculating multidimensional priority scores (1–10) in an interactive executive command deck.
 
 ---
 
-## ✨ Features
+## 🚀 Key Features
 
-| Feature | Description |
-|---|---|
-| 🔍 **Insight Analysis** | Ingests and processes raw customer insights through an AI pipeline |
-| 📊 **Theme Detection** | Automatically clusters insights into coherent themes |
-| 👥 **User Segmentation** | Identifies which user segment each insight is coming from |
-| 📈 **Priority Scoring** | AI-calculated 1–10 priority score for every insight |
-| 🎨 **Interactive Dashboard** | Real-time charts, KPI cards, and a sortable insights table |
-| 🔄 **Live Data Sync** | WebSocket-ready architecture for future live updates |
-| 🛡️ **CORS-Enabled** | Configured for multi-port local development out of the box |
-
----
-
-## 🏗️ Project Structure
-
-```
-discoveryos/
-│
-├── server.py               # Flask backend server
-├── main.py                 # Core business logic & AI processing
-├── database.py             # Database initialization & queries
-├── init_db.py               # Database seeding with sample data
-├── discoveryos.db           # SQLite database (auto-created)
-├── .env.example              # Environment variables template
-│
-└── frontend/                 # React + Vite dashboard
-    ├── index.html
-    ├── package.json
-    ├── vite.config.js
-    ├── tailwind.config.js
-    ├── postcss.config.js
-    ├── src/
-    │   ├── main.jsx
-    │   ├── App.jsx
-    │   ├── index.css
-    │   ├── api/
-    │   │   └── reportService.js
-    │   └── components/
-    │       ├── Header.jsx
-    │       ├── ErrorAlert.jsx
-    │       ├── ErrorBoundary.jsx
-    │       ├── LoadingSpinner.jsx
-    │       ├── ThemeCard.jsx
-    │       ├── ThemeChart.jsx
-    │       └── SegmentSection.jsx
-    └── .env.development
-```
+1. **Semantic Insight Clustering**: Groups thousands of unstructured user feedback items into coherent feature themes using Sentence-Transformers embeddings and unsupervised density clustering.
+2. **Dynamic User Segmentation**: Maps feedback to customer tiers (Enterprise, Mid-Market, SMB, Self-Serve) to evaluate revenue-weighted demand.
+3. **Calibrated Priority Scoring Engine**: Computes deterministic priority scores ($1.0 - 10.0$) using weighted Impact, Urgency, Confidence, and Effort factors:
+   $$\text{Priority} = f(\text{Impact}, \text{Urgency}, \text{Confidence}, \text{Effort})$$
+4. **Interactive Executive Dashboard**: Built with React 18, Vite, and Recharts, featuring real-time KPI metrics, segment distribution donuts, priority heatmaps, and filterable theme tables.
+5. **Zero-Friction Local Database**: Defaults out of the box to zero-configuration SQLite (`discoveryos.db`), with immediate production support for PostgreSQL via SQLAlchemy.
+6. **Asynchronous REST API Backend**: FastAPI server with automated Swagger/OpenAPI documentation (`/docs`), CORS middleware, and structured Pydantic schemas.
+7. **Production Clean Repository Architecture**: Fully sanitized codebase free of committed bytecode, binaries, or virtualenv artifacts, featuring complete test coverage.
 
 ---
 
-## 📊 How Insights Flow Through The System
+## 🛠 Tech Stack
+
+- **Backend Framework**: FastAPI, Uvicorn
+- **AI & NLP Pipeline**: Sentence-Transformers, Scikit-Learn, HDBSCAN, OpenAI / Anthropic integrations
+- **Data Persistence**: SQLAlchemy, SQLite3 / PostgreSQL, Pydantic v2
+- **Frontend Dashboard**: React 18, Vite, Recharts, Tailwind CSS, Lucide Icons, Axios
+- **Testing**: Pytest automated regression suite
+
+---
+
+## 🏗 Architecture & Directory Structure
 
 ```
-Raw customer insight submitted
-        ↓
-AI pipeline analyzes content (main.py)
-        ↓
-Insight clustered into a Theme
-        ↓
-Insight mapped to a User Segment
-        ↓
-Priority Score (1–10) calculated
-        ↓
-Stored in SQLite (discoveryos.db)
-        ↓
-Dashboard fetches via REST API and renders live
+DiscoveryOS/
+├── src/
+│   ├── api/
+│   │   └── reportService.js  # REST API client and report service
+│   ├── components/           # Modular React dashboard widgets
+│   │   ├── DashboardLayout.jsx
+│   │   ├── Header.jsx
+│   │   ├── KPICard.jsx
+│   │   ├── SegmentChart.jsx
+│   │   ├── ThemeChart.jsx
+│   │   ├── ThemeDetailModal.jsx
+│   │   ├── ThemeGrid.jsx
+│   │   ├── RecentThemesTable.jsx
+│   │   ├── LoadingSpinner.jsx
+│   │   └── ErrorAlert.jsx
+│   ├── App.jsx               # Main React application entry
+│   ├── index.css             # Tailwind CSS tokens
+│   └── main.jsx              # Vite client bootstrap
+├── tests/
+│   └── test_discovery.py     # Automated scoring and schema unit tests
+├── clustering.py             # Semantic embedding and clustering pipeline
+├── database.py               # SQLAlchemy database session manager
+├── embeddings.py             # Vector embedding generation utilities
+├── main.py                   # FastAPI application instance & endpoints
+├── models.py                 # SQLAlchemy relational ORM models
+├── schemas.py                # Pydantic request and response schemas
+├── scoring.py                # Quantitative priority score calculation engine
+├── server.py                 # Backend runner with auto-port discovery
+├── themes.py                 # Theme extraction & synthesis logic
+├── package.json              # Frontend dependencies and scripts
+├── requirements.txt          # Python backend dependencies
+├── vite.config.js            # Vite development & build configuration
+├── tailwind.config.js        # Tailwind configuration
+├── .gitignore                # Production ignore patterns
+├── LICENSE                   # MIT License
+└── README.md                 # Project documentation
 ```
 
 ---
 
-## 🛠️ Tech Stack
-
-| Layer | Technology | Purpose |
-|---|---|---|
-| **Backend** | Flask, Flask-CORS, Flask-Limiter | REST API, cross-origin support, rate limiting |
-| **AI Processing** | Python (`main.py`) | Theme clustering, segmentation, priority scoring |
-| **Persistence** | SQLite | Insights, themes, and segments storage |
-| **Frontend** | React 18 + Vite | Interactive dashboard |
-| **Styling** | Tailwind CSS | Dashboard UI |
-| **Charts** | Theme & segment visualizations | Bar chart, pie chart, sortable table |
-
----
-
-## 🚀 Getting Started
+## ⚡ Getting Started
 
 ### Prerequisites
-- Python 3.8+
-- Node.js 16+ & npm
-- SQLite (bundled, no separate install needed)
 
-### Installation
+- Python `3.10` or `3.11`
+- Node.js `v18+` or `v20+`
+- `npm` or `pnpm`
+
+### 1. Backend Setup
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/chakriburidi237-crypto/DiscoveryOS.git
+   cd DiscoveryOS
+   ```
+
+2. Create and activate a Python virtual environment:
+   ```bash
+   python -m venv venv
+   # On Windows:
+   .\venv\Scripts\activate
+   # On macOS/Linux:
+   source venv/bin/activate
+   ```
+
+3. Install backend dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+4. Launch the FastAPI server:
+   ```bash
+   python server.py
+   ```
+   Interactive Swagger documentation will be available at [http://localhost:5000/docs](http://localhost:5000/docs).
+
+### 2. Frontend Setup
+
+In a new terminal window:
+
+1. Install frontend packages:
+   ```bash
+   npm install
+   ```
+
+2. Launch the Vite development server:
+   ```bash
+   npm run dev
+   ```
+   Open [http://localhost:5173](http://localhost:5173) in your web browser.
+
+---
+
+## 🧪 Automated Testing
+
+Execute the backend unit test suite:
 
 ```bash
-# 1. Clone the repository
-git clone https://github.com/chakriburidi237-crypto/discoveryos.git
-cd discoveryos
-
-# 2. Install backend dependencies
-pip install flask flask-cors flask-limiter
-
-# 3. Initialize the database (creates discoveryos.db with sample data)
-python init_db.py
+pytest tests/ -v
 ```
 
----
-
-## ▶️ Running the Application
-
-### Terminal 1 — Backend
-
-```bash
-python server.py
-# API starts at http://localhost:5000
+Expected output:
 ```
-
-### Terminal 2 — Frontend
-
-```bash
-cd frontend
-npm install
-npm run dev
-# Dashboard starts at http://localhost:5177
+tests/test_discovery.py::test_scoring_algorithm PASSED
+tests/test_discovery.py::test_schema_validation PASSED
+======================== 2 passed in 0.35s ========================
 ```
-
-Once both are running, open **http://localhost:5177** to view the dashboard.
-
----
-
-## 🔌 API Endpoints
-
-| Method | Endpoint | Description |
-|---|---|---|
-| `GET` | `/api/insights` | Retrieve all insights |
-| `GET` | `/api/themes` | Get theme analysis results |
-| `GET` | `/api/segments` | Retrieve user segments |
-| `GET` | `/api/health` | Health check endpoint |
-| `GET` | `/api/stats` | System-wide statistics |
-
-### Example — fetching insights:
-
-```bash
-curl http://localhost:5000/api/insights
-```
-
----
-
-## 📈 Data Model
-
-**Insights**
-- `id`, `content`, `theme`, `segment`, `priority_score` (1–10), `created_at`
-
-**Themes**
-- `id`, `name`, `insight_count`, `avg_priority`
-
-**Segments**
-- `id`, `name`, `user_count`, `key_characteristics`
-
----
-
-## 🎨 Dashboard Features
-
-- **KPI Cards** — total insights, themes detected, segments identified, average priority score
-- **Bar Chart** — insights grouped by theme
-- **Pie Chart** — segment distribution
-- **Theme Cards Grid** — detailed per-theme breakdown
-- **Sortable Table** — full insights data with filtering
-
----
-
-## 🔧 Configuration
-
-Create a `.env` file in the root directory:
-
-```env
-FLASK_ENV=development
-FLASK_DEBUG=1
-DATABASE_PATH=./discoveryos.db
-CORS_ORIGINS=http://localhost:5173,http://localhost:5174,http://localhost:5175,http://localhost:5176,http://localhost:5177
-MAX_REQUESTS=100
-```
-
----
-
-## 🔐 Security
-
-- CORS properly scoped for local development
-- Rate limiting enabled (100 requests/minute)
-- Input validation on all endpoints
-- Error handling with safe, non-leaking error messages
-
----
-
-## 🐛 Troubleshooting
-
-**CORS errors** — make sure both servers are running; `CORS_ORIGINS` already covers ports 5173–5177 by default.
-
-**Database issues** — reset with:
-```bash
-rm discoveryos.db
-python init_db.py
-```
-
-**Frontend not loading** — reinstall dependencies:
-```bash
-cd frontend
-npm install
-npm run dev
-```
-
----
-
-## 📝 Sample Data
-
-Pre-loaded out of the box with:
-- ✅ 4 Themes (AI, Personalization, Performance, Integration)
-- ✅ 39 Insights (analyzed and scored)
-- ✅ 1 Segment (Power Users – Enterprise)
-- ✅ Priority scores calculated and ready to display
-
----
-
-## 🚀 Deployment
-
-### Docker (optional)
-
-```dockerfile
-FROM python:3.9-slim
-WORKDIR /app
-COPY requirements.txt .
-RUN pip install -r requirements.txt
-COPY . .
-CMD ["python", "server.py"]
-```
-
-### Production Build
-
-```bash
-cd frontend
-npm run build
-# Output: dist/ folder, ready for deployment
-```
-
----
-
-## 🔮 Future Improvements
-
-- [ ] 🔗 Real-time WebSocket updates instead of polling
-- [ ] 🧠 Swap in a production LLM for theme detection and priority scoring
-- [ ] 👥 Multi-segment support beyond the current single-segment demo
-- [ ] 🔐 Authentication and multi-tenant workspace support
-- [ ] 📊 Historical trend view for priority scores over time
-- [ ] 🐳 Dockerize backend + frontend for one-command spin-up
-
----
-
-## 👨‍💻 Developer
-
-<div align="center">
-
-**Surya Chakradhar Buridi**
-
-*AI/ML Engineer | B.E. Artificial Intelligence & Machine Learning @ KIET*
-
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/surya-chakradhar-buridi-767548355)
-[![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/chakriburidi237-crypto)
-
-</div>
 
 ---
 
 ## 📄 License
 
-Open source — feel free to use and modify.
-
----
-
-<div align="center">
-
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:6366F1,100:2DD4BF&height=100&section=footer" width="100%"/>
-
-*Built by Surya Chakradhar Buridi — Kakinada Institute of Engineering and Technology (KIET)*
-
-</div>
+MIT License © 2026 Chakradhar Buridi. Built with pride for autonomous product discovery and AI roadmapping.

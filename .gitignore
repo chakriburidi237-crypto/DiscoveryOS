@@ -1,2 +1,21 @@
-# Created by venv; see https://docs.python.org/3/library/venv.html
-*
+__pycache__/
+*.py[cod]
+*.class
+*.so
+*.db
+*.sqlite
+*.sqlite3
+.env
+.env.local
+.venv/
+venv/
+ENV/
+node_modules/
+dist/
+*.exe
+*.node
+.pytest_cache/
+.coverage
+htmlcov/
+.DS_Store
+Thumbs.db
